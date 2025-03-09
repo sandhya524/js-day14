@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .q2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h4>1.Caluculator</h4>
+    <form action="" style="text-align: center;">
+        <input type="number" name = "operator1" id="op1" placeholder="enter a number"><br> <br>
+        <input type="number" name = "operator2" id="op2" placeholder="enter a number"><br><br>
+        <button id="btn1">add</button>
+        <button id="btn2">sub</button>
+        <button id="btn3">mul</button>
+        <button id="btn4">div</button><br><br>
+        <input type="number" id="res" name="output" placeholder="result">
+    </form><hr>
+
+
+<!-- 2.check th password is weak,medium, strong -->
+ <h4>2.check th password is weak,medium, strong</h4>
+     <form action="" style="text-align: center;">
+        <input type="password" name="password" id="q2" placeholder="enter the password">
+        <p id="message"></p>
+     </form><hr><br>
+
+<!-- 3.check does password and re password matched or not -->
+ <h4>3.check does password and re password matched or not</h4>
+     <form action="" style="text-align: center;">
+        <input type="password" name="verify-password" id="verify1" placeholder="enter the password">
+        <input type="password" name="verify-password" id="verify2" placeholder="re-enter the password">
+        <button id="verify">Submit</button>
+        <p id="msg"></p>
+     </form>
+
+
+        
+   
+    <script>
+        var ip1=document.getElementById('op1')
+        var ip2=document.getElementById('op2') 
+        var btn1=document.getElementById('btn1')
+        var btn2=document.getElementById('btn2')
+        var btn3=document.getElementById('btn3')
+        var btn4=document.getElementById('btn4')
+        var ip3=document.getElementById("res")
+        
+        console.log(ip1,ip2,btn1,btn2,btn3,btn4,res)
+        btn1.addEventListener("click",function(e){
+            e.preventDefault()
+            add = Number(ip1.value)  + Number(ip2.value) 
+            ip3.value = add
+            
+            console.log(res)
+            e.target[0].value = " "
+        })
+
+        btn2.addEventListener("click",function(e){
+            e.preventDefault()
+            sub = Number(ip1.value)  - Number(ip2.value) 
+            ip3.value = sub
+            console.log(res)
+        })
+
+        btn3.addEventListener("click",function(e){
+            e.preventDefault()
+            mul = Number(ip1.value)  * Number(ip2.value) 
+            ip3.value = mul
+            console.log(res)
+        })
+
+        btn4.addEventListener("click",function(e){
+            e.preventDefault()
+            div = Number(ip1.value)  / Number(ip2.value) 
+            ip3.value = div
+            console.log(res)
+        })
+
+// 2.check th password is weak,medium, strong
+    var password_check = document.getElementById('q2');
+    message.classList.add('q2')
+
+    password_check.addEventListener("input",function(){
+         if (password_check.value.length >= 10){
+            message.innerText = 'your password is strong'
+            message.style.color = 'green'
+        
+        }
+       else if (password_check.value.length >= 8){
+        message.innerText = 'your password is medium'
+        message.style.color = 'orange'
+    
+       }
+       else if (password_check.value.length <= 6){
+        message.innerText = 'your password is weak'
+        message.style.color = 'red'
+       }
+    })
+
+// 3.check does password and re password matched or not
+   var verify1 = document.getElementById("verify1")
+   var verify2 = document.getElementById('verify2')
+   var verify = document.getElementById('verify')
+   var msg = document.getElementById('msg')
+  console.log(verify1,verify2,verify)
+   verify.addEventListener("click",function(e){
+    e.preventDefault()
+    if(verify1.value === verify2.value){
+        msg.innerText = 'password matched'
+        msg.style.color = 'green'
+    }
+    else{
+        msg.innerText = 'password not matched'
+        msg.style.color = 'red'
+    }
+   })
+    
+
+
+      
+    </script>
+</body>
+</html>
